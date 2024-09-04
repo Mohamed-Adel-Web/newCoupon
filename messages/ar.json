@@ -1,6 +1,19 @@
 {
-    "HomePage": {
-      "title": "اهلا بالعالم",
-      "about": "اذهب الي ابمقطع"
-    }
+  "LanguageSwitcher": {
+    "currentLanguage": "ar",
+    "switchedLanguage": "en"
+  },
+  "searchBar": {
+    "placeHolder": "ابحث عن المتاجر، الكوبونات، والخصومات"
+  },
+  "navImage": {
+    "logo": "./images/logo/Logo_Ar.svg"
+  },
+  "navigationLinks": {
+    "home": "الرئيسية",
+    "allStores": "جميع المتاجر",
+    "allCoupons": "جميع الكوبونات",
+    "more": "المزيد",
+    "menu": "القائمة"
   }
+}

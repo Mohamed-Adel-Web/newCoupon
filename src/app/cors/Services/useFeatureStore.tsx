@@ -1,6 +1,6 @@
-const fetchStoresData = async (featuredStores: string): Promise<any[]> => {
+const fetchStoresData = async (SearchStores: string): Promise<StoreType[]> => {
   try {
-    const response = await fetch(featuredStores, {
+    const response = await fetch(SearchStores, {
       method: "GET",
       cache: "no-store",
     });
@@ -10,22 +10,20 @@ const fetchStoresData = async (featuredStores: string): Promise<any[]> => {
     }
 
     const data = await response.json();
-    return data?.data as any[];
+    return data?.data as StoreType[];
   } catch (error) {
     console.error("Fetching stores data failed:", error);
     throw error;
   }
 };
 
-const useFeaturedStoresData = async (locale: string) => {
+const useSearchStoresData = async (searchParam: string) => {
   try {
-    const storesData = await fetchStoresData(
-      `http://192.168.1.19/api/store-featured/${locale}`
-    );
+    const storesData = await fetchStoresData(`${searchStore}/${searchParam}`);
     return storesData;
   } catch (error) {
     console.error("Error in retrieving stores data:", error);
     return [];
   }
 };
-export { useFeaturedStoresData };
+export default useSearchStoresData;

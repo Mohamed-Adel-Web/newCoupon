@@ -1,19 +1,18 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import { useFeaturedStoresData } from "./fetch/useFeatureStore";
+import useGetSwiper from "../cors/Services/Slider";
+import { ISlider } from "../cors/interfaces/islider";
+import MainSlider from "@/components/home/mainSlider/mainSlider";
 
 export default async function HomePage({
   params,
 }: {
   params: { locale: string };
 }) {
-  const data = await useFeaturedStoresData(params.locale);
-  console.log(data);
+  const swiperData: ISlider[] = await useGetSwiper(params.locale);
   return (
-    <div>
-      {data.map((small) => {
-        return <>{small.name}</>;
-      })}
+    <div className="my-3 text-center">
+      <MainSlider images={swiperData} />
     </div>
   );
 }

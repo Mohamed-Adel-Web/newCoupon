@@ -1,6 +1,21 @@
 {
-    "HomePage": {
-      "title": "Hello world!",
-      "about": "Go to the about page"
-    }
+  "LanguageSwitcher": {
+    "currentLanguage": "en",
+    "switchedLanguage": "ar"
+  },
+  "searchBar": {
+    "placeHolder": "Search Stores, coupons and discounts"
+  },
+  "navImage": {
+    "logo": "./images/logo/Logo_En.svg"
+  },
+
+  "navigationLinks": {
+    "home": "Home",
+    "allStores": "All Stores",
+    "allCoupons": "All Coupons",
+    "more":"More",
+    "menu": "Menu"
+
   }
+}
