@@ -1,6 +1,9 @@
-const fetchStoresData = async (SearchStores: string): Promise<StoreType[]> => {
+import { environment } from "../environment/environment";
+import { IStore } from "../interfaces/istore";
+
+const fetchStoresData = async (url: string): Promise<IStore[]> => {
   try {
-    const response = await fetch(SearchStores, {
+    const response = await fetch(url, {
       method: "GET",
       cache: "no-store",
     });
@@ -10,20 +13,20 @@ const fetchStoresData = async (SearchStores: string): Promise<StoreType[]> => {
     }
 
     const data = await response.json();
-    return data?.data as StoreType[];
+    return data?.data as IStore[];
   } catch (error) {
     console.error("Fetching stores data failed:", error);
     throw error;
   }
 };
 
-const useSearchStoresData = async (searchParam: string) => {
+const useFeaturedStores = async (lang: string) => {
   try {
-    const storesData = await fetchStoresData(`${searchStore}/${searchParam}`);
+    const storesData = await fetchStoresData(`${environment.baseUrl}/store-featured/${lang}`);
     return storesData;
   } catch (error) {
     console.error("Error in retrieving stores data:", error);
     return [];
   }
 };
-export default useSearchStoresData;
+export { useFeaturedStores };

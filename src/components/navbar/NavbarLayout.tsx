@@ -6,7 +6,6 @@ import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import NavMainMenu from "./MainMenu/NavMainMenu";
 import NavCategories from "./Categories/NavCategories";
-
 export default function NavbarLayout() {
   const t = useTranslations("navImage");
   return (
@@ -44,6 +43,3 @@ export default function NavbarLayout() {
     </header>
   );
 }
-
-//
-// Simulated search function

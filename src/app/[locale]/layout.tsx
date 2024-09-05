@@ -4,10 +4,11 @@ import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import NavbarLayout from "@/components/navbar/NavbarLayout";
+import FooterLayout from "@/components/footer/FooterLayout";
 const tajawal = Tajawal({
   subsets: ["arabic", "latin"],
-  weight: ["400", "700"], 
-  display: "swap", 
+  weight: ["400", "700"],
+  display: "swap",
 });
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -24,11 +25,14 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} dir={locale == "en" ? "ltr" : "rtl"}>
+    <html lang={locale} dir={locale == "en" ? "ltr" : "rtl"} className="scroll-smooth">
       <body className={tajawal.className}>
         <NextIntlClientProvider messages={messages}>
-          <NavbarLayout />
-          <div className="container">{children}</div>
+          <div className="bg-gray-100">
+            <NavbarLayout />
+            <div className="container">{children}</div>
+            <FooterLayout/>
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>

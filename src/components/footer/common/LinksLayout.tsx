@@ -8,8 +8,8 @@ export default function LinkLayout({
   href: string;
 }) {
   return (
-    <li className="text-gray-700 hover:text-gray-900 hover:bg-slate-200 rounded duration-150   ">
-      <Link href={href} className="block p-1 font-bold text-lg" >
+    <li className="text-white">
+      <Link href={href} className="block p-1 font-bold text-lg"  scroll={true}>
         {title}
       </Link>
     </li>

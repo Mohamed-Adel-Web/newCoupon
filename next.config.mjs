@@ -18,6 +18,13 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
+
+      {
+        protocol: "https",
+        hostname: "ayadty.com",
+        port: "",
+        pathname: "/newcoupon/uploads/images/stores/**",
+      },
     ],
   },
 };
