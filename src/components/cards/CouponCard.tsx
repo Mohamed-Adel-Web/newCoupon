@@ -1,11 +1,11 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import { Flame, ShieldCheck, ShieldOff } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { ICoupon } from "@/app/cors/interfaces/icoupon";
 import Image from "next/image";
-import CouponBoxText from "./CouponBoxText";
 import { Link } from "@/i18n/routing";
-
+const CouponBoxText = dynamic(() => import("./CouponBoxText"), { ssr: false });
 type CouponCardProps = {
   coupon: ICoupon;
 };

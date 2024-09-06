@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useCallback } from "react";
 import { Clipboard } from "lucide-react";
 import { useTranslations } from "next-intl";
