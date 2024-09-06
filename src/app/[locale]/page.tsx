@@ -1,4 +1,3 @@
-import { useTranslations } from "next-intl";
 import useGetSwiper from "../cors/Services/Slider";
 import { ISlider } from "../cors/interfaces/islider";
 import MainSlider from "@/components/home/mainSlider/mainSlider";

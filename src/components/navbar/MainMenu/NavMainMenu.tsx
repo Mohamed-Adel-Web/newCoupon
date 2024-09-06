@@ -10,6 +10,8 @@ import { Button } from "../../ui/button";
 import StaticLinks from "./StaticLinks";
 import DynamicLinks from "./DynamicLinks";
 import { useTranslations } from "next-intl";
+import { Suspense } from "react";
+import Loading from "@/app/[locale]/loading";
 export default function NavMainMenu() {
   const t = useTranslations("navigationLinks");
   return (
@@ -25,7 +27,9 @@ export default function NavMainMenu() {
         </SheetHeader>
         <ul className="mt-4 space-y-4">
           <StaticLinks />
-          <DynamicLinks />
+          <Suspense fallback={<Loading />}>
+            <DynamicLinks />
+          </Suspense>
         </ul>
       </SheetContent>
     </Sheet>

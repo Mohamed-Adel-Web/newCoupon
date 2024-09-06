@@ -4,8 +4,10 @@ import SearchedList from "./Search/SearchedList";
 import Image from "next/image";
 import { Link } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import NavMainMenu from "./MainMenu/NavMainMenu";
+const NavMainMenu = lazy(() => import("./MainMenu/NavMainMenu"));
 import NavCategories from "./Categories/NavCategories";
+import { lazy, Suspense } from "react";
+import Loading from "@/app/[locale]/loading";
 export default function NavbarLayout() {
   const t = useTranslations("navImage");
   return (
@@ -33,7 +35,9 @@ export default function NavbarLayout() {
                 <SearchedList />
               </div>
               <div className="md:hidden">
-                <NavMainMenu />
+                <Suspense fallback={<Loading/>}>
+                  <NavMainMenu />
+                </Suspense>
               </div>
             </div>
           </div>

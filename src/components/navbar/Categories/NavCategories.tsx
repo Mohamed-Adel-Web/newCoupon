@@ -1,6 +1,7 @@
-
 import StaticLinks from "./StaticLinks";
 import DynamicLinks from "./DynamicLinks";
+import { Suspense } from "react";
+import Loading from "@/app/[locale]/loading";
 
 export default function NavCategories() {
   return (
@@ -9,7 +10,9 @@ export default function NavCategories() {
         <div className="flex items-center h-12 text-sm ">
           <ul className=" flex ">
             <StaticLinks />
-            <DynamicLinks  />
+            <Suspense fallback={<Loading />}>
+              <DynamicLinks />
+            </Suspense>
           </ul>
         </div>
       </div>
