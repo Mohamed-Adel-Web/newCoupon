@@ -5,8 +5,9 @@ const fetchCouponsData = async (url: string): Promise<ICoupon[]> => {
   try {
     const response = await fetch(url, {
       method: "GET",
-      cache: "no-store",
-
+      next: {
+        revalidate: 21600,
+      },
     });
 
     if (!response.ok) {
@@ -23,7 +24,9 @@ const fetchCouponsData = async (url: string): Promise<ICoupon[]> => {
 
 const useFeaturedCoupons = async (lang: string) => {
   try {
-    const couponsData = await fetchCouponsData(`${environment.baseUrl}/coupon-featured/${lang}`);
+    const couponsData = await fetchCouponsData(
+      `${environment.baseUrl}/coupon-featured/${lang}`
+    );
     return couponsData;
   } catch (error) {
     console.error("Error in retrieving coupons data:", error);
