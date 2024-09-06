@@ -1,6 +1,4 @@
-import useGetSwiper from "../cors/Services/Slider";
-import { ISlider } from "../cors/interfaces/islider";
-import MainSlider from "@/components/home/mainSlider/mainSlider";
+
 import FeaturedCouponsSection from "@/components/home/featuredCoupons/FeaturedCoupons";
 import { Toaster } from "@/components/ui/toaster";
 import { Metadata } from "next";
@@ -10,7 +8,8 @@ const CouponInstruction = lazy(
   () => import("@/components/home/couponsInstruction/CouponInstruction")
 );
 import { lazy, Suspense } from "react";
-import Loading from "./loading";
+import SwiperSection from "@/components/home/mainSlider/SwiperSection";
+import SwiperSkeleton from "@/components/home/mainSlider/SwiperSkeleton";
 
 export const generateMetadata = async ({
   params,
@@ -29,16 +28,13 @@ export const generateMetadata = async ({
     },
   };
 };
-export default async function HomePage({
-  params,
-}: {
-  params: { locale: string };
-}) {
-  const swiperData: ISlider[] = await useGetSwiper(params.locale);
+export default async function HomePage() {
   return (
     <>
       <section className="my-3 text-center">
-        <MainSlider images={swiperData} />
+        <Suspense fallback={<SwiperSkeleton />}>
+          <SwiperSection />
+        </Suspense>
       </section>
       <section className="my-12 text-start">
         <FeaturedCouponsSection />
@@ -47,7 +43,7 @@ export default async function HomePage({
         <FeaturedStoresSection />
       </section>
       <section className="my-12 text-start">
-        <Suspense fallback={<Loading />}>
+        <Suspense >
           <CouponInstruction />
         </Suspense>
       </section>

@@ -10,9 +10,7 @@ export default function NavCategories() {
         <div className="flex items-center h-12 text-sm ">
           <ul className=" flex ">
             <StaticLinks />
-            <Suspense fallback={<Loading />}>
               <DynamicLinks />
-            </Suspense>
           </ul>
         </div>
       </div>
