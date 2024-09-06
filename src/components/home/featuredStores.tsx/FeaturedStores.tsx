@@ -3,11 +3,7 @@ import SkeletonLoader from "@/components/cards/skeleton/SkeletonLoader";
 import CardSkeleton from "@/components/cards/skeleton/CardSkeleton";
 import SectionHead from "../featuredCoupons/staticContent/SectionHead";
 import StoresList from "./StoresList";
-export default async function FeaturedStoresSection({
-  lang,
-}: {
-  lang: string;
-}) {
+export default async function FeaturedStoresSection() {
   return (
     <>
       <SectionHead
@@ -22,7 +18,7 @@ export default async function FeaturedStoresSection({
           </SkeletonLoader>
         }
       >
-        <StoresList lang={lang} />
+        <StoresList />
       </Suspense>
     </>
   );

@@ -38,10 +38,10 @@ export default async function HomePage({
         <MainSlider images={swiperData} />
       </section>
       <section className="my-12 text-start">
-        <FeaturedCouponsSection lang={params.locale} />
+        <FeaturedCouponsSection />
       </section>
       <section className="my-12 text-start">
-        <FeaturedStoresSection lang={params.locale} />
+        <FeaturedStoresSection />
       </section>
       <section className="my-12 text-start">
         <CouponInstruction />

@@ -4,11 +4,7 @@ import { Suspense } from "react";
 import SectionFooter from "./staticContent/SeactionFooter";
 import SkeletonLoader from "@/components/cards/skeleton/SkeletonLoader";
 import CardSkeleton from "@/components/cards/skeleton/CardSkeleton";
-export default async function FeaturedCouponsSection({
-  lang,
-}: {
-  lang: string;
-}) {
+export default async function FeaturedCouponsSection() {
   return (
     <>
       <SectionHead
@@ -23,7 +19,7 @@ export default async function FeaturedCouponsSection({
           </SkeletonLoader>
         }
       >
-        <CouponsList lang={lang} />
+        <CouponsList />
       </Suspense>
 
       <SectionFooter />

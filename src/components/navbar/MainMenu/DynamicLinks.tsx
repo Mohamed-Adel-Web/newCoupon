@@ -3,10 +3,11 @@ import LinkLayout from "./LinkLayout";
 import { useGetCategories } from "@/app/cors/Services/Categories";
 import { ICategory } from "@/app/cors/interfaces/icategory";
 import { formatHref } from "@/lib/utils";
+import { getLocale } from "next-intl/server";
 
 export default async function DynamicLinks() {
-  const t = useTranslations("LanguageSwitcher");
-  const categories: ICategory[] = await useGetCategories(t("currentLanguage"));
+  const locale = await getLocale();
+  const categories: ICategory[] = await useGetCategories(locale);
   return (
     <>
       {categories.map((category) => {
