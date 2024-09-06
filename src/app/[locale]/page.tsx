@@ -7,7 +7,11 @@ import { Toaster } from "@/components/ui/toaster";
 import { Metadata } from "next";
 import FeaturedStoresSection from "@/components/home/featuredStores.tsx/FeaturedStores";
 import { getTranslations } from "next-intl/server";
-import CouponInstruction from "@/components/home/couponsInstruction/CouponInstruction";
+const CouponInstruction = lazy(
+  () => import("@/components/home/couponsInstruction/CouponInstruction")
+);
+import { lazy, Suspense } from "react";
+import Loading from "./loading";
 
 export const generateMetadata = async ({
   params,
@@ -44,7 +48,9 @@ export default async function HomePage({
         <FeaturedStoresSection />
       </section>
       <section className="my-12 text-start">
-        <CouponInstruction />
+        <Suspense fallback={<Loading />}>
+          <CouponInstruction />
+        </Suspense>
       </section>
       <Toaster />
     </>
