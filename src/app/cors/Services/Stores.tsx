@@ -20,13 +20,71 @@ const fetchStoresData = async (url: string): Promise<IStore[]> => {
   }
 };
 
+interface IStoreResponse {
+  data: IStore[];
+  current_page: number;
+  last_page: number;
+  per_page: number;
+  total: number;
+}
+const fetchAllStoresData = async (
+  url: string,
+  pag: number
+): Promise<IStoreResponse> => {
+  try {
+    const response = await fetch(url, {
+      method: "GET",
+      next: {
+        revalidate: 21600,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return {
+      data: data?.data as IStore[],
+      current_page: data?.current_page,
+      last_page: data?.last_page,
+      per_page: data?.per_page,
+      total: data?.total,
+    };
+  } catch (error) {
+    console.error("Fetching coupons data failed:", error);
+    throw error;
+  }
+};
+
 const useFeaturedStores = async (lang: string) => {
   try {
-    const storesData = await fetchStoresData(`${environment.baseUrl}/store-featured/${lang}`);
+    const storesData = await fetchStoresData(
+      `${environment.baseUrl}/store-featured/${lang}`
+    );
     return storesData;
   } catch (error) {
     console.error("Error in retrieving stores data:", error);
     return [];
   }
 };
-export { useFeaturedStores };
+const GetAllStores = async (lang: string, page: number = 1) => {
+  try {
+    const storesData = await fetchAllStoresData(
+      `${environment.baseUrl}/store-user/${lang}?page=${page}`,
+      page
+    );
+    return storesData as IStoreResponse;
+  } catch (error) {
+    console.error("Error in retrieving coupons data:", error);
+    return {
+      data: [],
+      current_page: 1,
+      last_page: 1,
+      per_page: 0,
+      total: 0,
+    };
+  }
+};
+
+export { useFeaturedStores, GetAllStores };

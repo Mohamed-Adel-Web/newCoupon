@@ -4,8 +4,9 @@ import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import NavbarLayout from "@/components/navbar/NavbarLayout";
-import FooterLayout from "@/components/footer/FooterLayout"
-import {routing} from '@/i18n/routing';;
+import FooterLayout from "@/components/footer/FooterLayout";
+import { routing } from "@/i18n/routing";
+import { Toaster } from "@/components/ui/toaster";
 const tajawal = Tajawal({
   subsets: ["arabic", "latin"],
   weight: ["400", "700"],
@@ -26,17 +27,15 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html
-      lang={locale}
-      dir={locale == "en" ? "ltr" : "rtl"}
-    >
+    <html lang={locale} dir={locale == "en" ? "ltr" : "rtl"}>
       <body className={tajawal.className}>
         <NextIntlClientProvider messages={messages}>
-          <div className="bg-gray-100">
+          <div className="bg-gray-100 flex justify-between flex-col min-h-screen">
             <NavbarLayout />
             <div className="container">{children}</div>
-            <FooterLayout  />
+            <FooterLayout />
           </div>
+          <Toaster />
         </NextIntlClientProvider>
       </body>
     </html>

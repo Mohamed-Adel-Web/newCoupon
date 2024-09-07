@@ -7,7 +7,7 @@
     "placeHolder": "Search Stores, coupons and discounts"
   },
   "navImage": {
-    "logo": "./images/logo/Logo_En.svg"
+    "logo": "/images/logo/Logo_En.svg"
   },
 
   "navigationLinks": {
@@ -68,7 +68,7 @@
       "title": "About shops Coupons",
       "description": "shops Coupons is Saudi Arabia and GCC's largest platform for coupons and discount codes. It offers a range of features that help users save money and avail discounts and offers from various stores."
     },
-    "social": { "followUs": "Follow Us", "logo": "./images/logo/Logo_En.svg" },
+    "social": { "followUs": "Follow Us", "logo": "/images/logo/Logo_En.svg" },
     "topStores": "Top Stores",
 
     "featuredSection": {
@@ -80,6 +80,37 @@
         "more": "More",
         "menu": "Menu"
       }
+    }
+  },
+  "category": {
+    "mainTitle": "All Stores for",
+    "secondTitle": "Online Shopping Platforms: Top Discount Codes and Coupons",
+    "description": "Our team at Shops coupons diligently curates the latest coupon codes, discounts, and deals from top online Shopping sites. The Middle East is rapidly becoming a hub for online stores and e-commerce platforms, offering a wide range of products that are just a click away and delivered to your doorstep with exceptional speed."
+  },
+  "coupons": {
+    "mainTitle": "Hot Coupon Deals",
+    "secondTitle": "Offers, Sales, Deals, and Discounts are available year-round",
+    "description": "A promo code can offer instant discounts either as a percentage off your total order, like 10% off, or as fixed value reductions, such as a 10 SAR discount on purchases of 100 SAR or more, or even free shipping. However, finding active discount codes can sometimes be challenging. For this reason, the team at shops coupons checks every voucher code and their expiry dates daily. If you find it difficult to locate and apply the best coupon while Shopping online, don't worry; we're here to guide you. We provide all the advice you need to evolve from a beginner to an expert in using coupons and saving money while Shopping on the internet.",
+    "meta": {
+      "title": " Top Discount Codes & Coupons Saving Of Up To 90% - shops Coupons",
+      "description": "Save big with shops coupons, deals, and promos! Get discounts and exclusive offers from top brands on clothing, beauty, grocery, and more.",
+      "keywords": "Coupons, Disscount codes, Promo codes, Vouchers, Coupon code, discount code, Coupon",
+      "openGraph": "/images/logo/Logo_En.svg"
+    }
+  },
+  "pagination": {
+    "next": "Next",
+    "pervious": "Pervious"
+  },
+  "stores": {
+    "mainTitle": "All Stores and deals",
+    "secondTitle": "Online Shopping Platforms: Top Discount Codes and Coupons",
+    "description": " Our team at Shops coupons diligently curates the latest coupon codes, discounts, and deals from top online Shopping sites. The Middle East  is rapidly becoming a hub for online stores and e-commerce platforms,  offering a wide range of products that are just a click away anddelivered to your doorstep with exceptional speed.",
+    "meta": {
+      "title": " Explore Top Online Stores for Latest Coupons and Deals - Shops Coupons",
+      "description": "Click here for a comprehensive list of online Shopping sites and e-commerce stores featuring the latest coupons, discount codes, and deals.",
+      "keywords": "Coupons, Discount codes, Promo codes, Vouchers, Coupon code, discount code, Coupon, deals",
+      "openGraph": "/images/logo/Logo_En.svg"
     }
   }
 }

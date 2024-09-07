@@ -47,7 +47,6 @@ export default async function HomePage() {
           <CouponInstruction />
         </Suspense>
       </section>
-      <Toaster />
     </>
   );
 }
