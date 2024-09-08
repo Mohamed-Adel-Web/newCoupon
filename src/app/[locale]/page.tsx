@@ -1,15 +1,12 @@
-
 import FeaturedCouponsSection from "@/components/home/featuredCoupons/FeaturedCoupons";
-import { Toaster } from "@/components/ui/toaster";
 import { Metadata } from "next";
 import FeaturedStoresSection from "@/components/home/featuredStores.tsx/FeaturedStores";
 import { getTranslations } from "next-intl/server";
-const CouponInstruction = lazy(
-  () => import("@/components/home/couponsInstruction/CouponInstruction")
-);
-import { lazy, Suspense } from "react";
+import { Suspense } from "react";
+import LazyLoad from "react-lazy-load";
 import SwiperSection from "@/components/home/mainSlider/SwiperSection";
 import SwiperSkeleton from "@/components/home/mainSlider/SwiperSkeleton";
+import CouponInstruction from "@/components/home/couponsInstruction/CouponInstruction";
 
 export const generateMetadata = async ({
   params,
@@ -43,9 +40,9 @@ export default async function HomePage() {
         <FeaturedStoresSection />
       </section>
       <section className="my-12 text-start">
-        <Suspense >
+        <LazyLoad>
           <CouponInstruction />
-        </Suspense>
+        </LazyLoad>
       </section>
     </>
   );
