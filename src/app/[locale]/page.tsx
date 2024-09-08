@@ -3,9 +3,12 @@ import { Metadata } from "next";
 import FeaturedStoresSection from "@/components/home/featuredStores.tsx/FeaturedStores";
 import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
+const CouponInstruction = dynamic(
+  () => import("@/components/home/couponsInstruction/CouponInstruction")
+)
 import SwiperSection from "@/components/home/mainSlider/SwiperSection";
 import SwiperSkeleton from "@/components/home/mainSlider/SwiperSkeleton";
-import CouponInstruction from "@/components/home/couponsInstruction/CouponInstruction";
+import dynamic from "next/dynamic";
 
 export const generateMetadata = async ({
   params,
@@ -39,7 +42,7 @@ export default async function HomePage() {
         <FeaturedStoresSection />
       </section>
       <section className="my-12 text-start">
-          <CouponInstruction />
+        <CouponInstruction />
       </section>
     </>
   );

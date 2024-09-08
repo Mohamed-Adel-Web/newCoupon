@@ -17,7 +17,6 @@ export default function LanguageSwitcher() {
   const searchParams = useSearchParams();
 
   const changeLocale = (newLocale: "ar" | "en") => {
-    // Build new URL with the current search parameters
     const newUrl = `${pathname}?${searchParams.toString()}`;
     router.replace(newUrl, { locale: newLocale });
   };
