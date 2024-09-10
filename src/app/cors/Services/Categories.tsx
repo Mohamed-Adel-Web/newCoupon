@@ -5,9 +5,7 @@ const fetchCategoriesData = async (endPoint: string): Promise<ICategory[]> => {
   try {
     const response = await fetch(endPoint, {
       method: "GET",
-      next: {
-        revalidate: 21600,
-      },
+    
     });
 
     if (!response.ok) {

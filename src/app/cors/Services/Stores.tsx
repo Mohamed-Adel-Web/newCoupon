@@ -5,9 +5,6 @@ const fetchStoresData = async (url: string): Promise<IStore[]> => {
   try {
     const response = await fetch(url, {
       method: "GET",
-      next: {
-        revalidate: 21600,
-      },
     });
 
     if (!response.ok) {
