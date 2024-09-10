@@ -8,11 +8,13 @@ export default function LinkLayout({
   href: string;
 }) {
   return (
-    <li className="mx-4">
-      <Link href={href} className="font-bold block text-md text-white">
+    <li className="mx-2" >
+      <Link
+        href={href}
+        className="font-bold block text-md text-black  hover:underline focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+      >
         {title}
       </Link>
     </li>
   );
 }
-``
