@@ -5,7 +5,7 @@ export default function CouponIntro() {
   
     return (
       <div className="bg-white p-6 border border-gray-300 min-h-[600px] lg:col-span-6 col-span-12 rounded-md">
-        <h3 className="text-lg">{t("coupon_intro_title")}</h3>
+        <h2 className="text-lg">{t("coupon_intro_title")}</h2>
         <p className="text-gray-600 text-base pt-4 leading-relaxed">
           {t("coupon_intro_text")}
         </p>
