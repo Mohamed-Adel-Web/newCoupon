@@ -5,6 +5,9 @@ const fetchFeaturedCouponsData = async (url: string): Promise<ICoupon[]> => {
   try {
     const response = await fetch(url, {
       method: "GET",
+      next: {
+        revalidate: 21600,
+      },
     });
 
     if (!response.ok) {

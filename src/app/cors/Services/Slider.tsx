@@ -5,7 +5,9 @@ const fetchSwiperData = async (getSwiperUrl: string): Promise<ISlider[]> => {
   try {
     const response = await fetch(getSwiperUrl, {
       method: "GET",
-     
+      next: {
+        revalidate: 21600,
+      },
     });
 
     if (!response.ok) {

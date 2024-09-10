@@ -10,7 +10,8 @@ const nextConfig = {
         protocol: "https",
         hostname: "coupon.kyanlabs.com",
         port: "",
-        pathname: "/uploads/images/products/**",
+        pathname: "/uploads/images/**",
+        
       },
       {
         protocol: "https",
