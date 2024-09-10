@@ -20,7 +20,7 @@ export default function CouponInstruction() {
             alt="coupon instruction image"
           />
           <div className="p-6">
-            <h3 className="text-lg py-4">{t("how_to_find_code")}</h3>
+            <h2 className="text-lg py-4">{t("how_to_find_code")}</h2>
             <p className="text-gray-600 text-base leading-relaxed">
               {t("how_to_find_code_text")}
             </p>

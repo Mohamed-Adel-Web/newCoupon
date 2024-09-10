@@ -8,7 +8,7 @@ export default function LinkLayout({
   href: string;
 }) {
   return (
-    <li className="mx-2">
+    <li className="mx-4">
       <Link href={href} className="font-bold block text-md text-white">
         {title}
       </Link>
