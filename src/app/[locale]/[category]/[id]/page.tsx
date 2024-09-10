@@ -31,7 +31,7 @@ export default async function CategoryPage({
   params: { id: string };
 }) {
   return (
-    <section>
+    <section className="my-5">
       <SectionHead categoryId={params.id} />
       <Suspense
         fallback={

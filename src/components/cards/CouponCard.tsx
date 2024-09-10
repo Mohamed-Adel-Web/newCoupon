@@ -44,7 +44,7 @@ export default function CouponCard({ coupon }: CouponCardProps) {
         <p className="text-sm capitalize">
           {t("discountCodeFor") + " " + coupon.store.name}
         </p>
-        <div className="mt-2 font-bold flex items-center">
+        <div className="mt-2 font-bold flex items-center text-sm">
           {coupon.title}
           <Flame className="ml-2 text-orange-400" />
         </div>

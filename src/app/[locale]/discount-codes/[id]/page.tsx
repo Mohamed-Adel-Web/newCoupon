@@ -1,3 +1,3 @@
 export default function SingleStore() {
-  return <>store details</>;
+  return <section className="my-5">store details</section>;
 }

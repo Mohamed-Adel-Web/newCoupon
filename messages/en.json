@@ -100,7 +100,7 @@
   },
   "pagination": {
     "next": "Next",
-    "pervious": "Pervious"
+    "previous": "Previous"
   },
   "stores": {
     "mainTitle": "All Stores and deals",

@@ -42,7 +42,7 @@ export default function StoreCard({ store }: StoreCardProps) {
         <p className="text-sm capitalize">
           {t("discountCodeFor") + " " + store.name}
         </p>
-        <div className="mt-2 font-bold flex items-center">
+        <div className="mt-2 font-bold flex items-center text-sm">
           {store.discount}
           <Flame className="ml-2 text-orange-400" />
         </div>

@@ -1,12 +1,7 @@
 "use client";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationItem,
-} from "@/components/ui/pagination";
-import { Link } from "@/i18n/routing";
+import ReactPaginate from "react-paginate";
 import { useTranslations } from "next-intl";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 export function PaginationComponent({
   currentPage,
@@ -15,9 +10,11 @@ export function PaginationComponent({
   currentPage: number;
   lastPage: number;
 }) {
-  const t=useTranslations("pagination")
+  const t = useTranslations("pagination");
   const searchParam = useSearchParams();
+  const router = useRouter();
   const [currentPageState, setCurrentPage] = useState(currentPage);
+
   useEffect(() => {
     const pageFromUrl = Number(searchParam.get("page")) || 1;
     if (pageFromUrl >= 1 && pageFromUrl <= lastPage) {
@@ -25,64 +22,31 @@ export function PaginationComponent({
     }
   }, [searchParam, lastPage]);
 
-  const handlePageChange = (page: number) => {
-    if (page >= 1 && page <= lastPage) {
-      setCurrentPage(page);
-    }
+
+  const handlePageClick = (selectedItem: { selected: number }) => {
+    const newPage = selectedItem.selected + 1; 
+    router.push(`?page=${newPage}`);
+    setCurrentPage(newPage);
   };
-
   return (
-    <Pagination className="flex justify-center items-center space-x-2 mt-4 bg-white shadow-lg p-4 rounded-md">
-      <PaginationContent className="flex gap-2">
-        {/* Previous Button */}
-        {currentPageState > 1 && (
-          <PaginationItem>
-            <Link
-              href={`?page=${currentPageState - 1}`}
-              scroll={true}
-              onClick={() => handlePageChange(currentPageState - 1)}
-              className={`px-3 py-1 rounded-md border bg-white hover:bg-gray-100 text-gray-700`}
-            >
-              {t("pervious")}
-            </Link>
-          </PaginationItem>
-        )}
-
-        {/* Pagination Links */}
-        {Array.from({ length: lastPage }, (_, index) => {
-          const pageNumber = index + 1;
-          return (
-            <PaginationItem key={pageNumber}>
-              <Link
-                href={`?page=${pageNumber}`}
-                scroll={true}
-                onClick={() => handlePageChange(pageNumber)}
-                className={`px-3 py-1 rounded-md border ${
-                  currentPageState === pageNumber
-                    ? "bg-blue-500 text-white"
-                    : "bg-white hover:bg-gray-100 text-gray-700"
-                }`}
-              >
-                {pageNumber}
-              </Link>
-            </PaginationItem>
-          );
-        })}
-
-        {/* Next Button */}
-        {currentPageState < lastPage && (
-          <PaginationItem>
-            <Link
-              href={`?page=${currentPageState + 1}`}
-              scroll={true}
-              onClick={() => handlePageChange(currentPageState + 1)}
-              className={`px-3 py-1 rounded-md border bg-white hover:bg-gray-100 text-gray-700`}
-            >
-              {t("next")}
-            </Link>
-          </PaginationItem>
-        )}
-      </PaginationContent>
-    </Pagination>
+    <div className="flex justify-center mt-4 shadow-lg bg-white p-3 rounded-md">
+      <ReactPaginate
+        previousLabel={t("previous")}
+        nextLabel={t("next")}
+        breakLabel="..."
+        breakClassName="text-gray-500"
+        pageCount={lastPage}
+        marginPagesDisplayed={1}
+        pageRangeDisplayed={2}
+        onPageChange={handlePageClick}
+        containerClassName="flex flex-wrap justify-center space-x-2 sm:space-x-4"
+        pageClassName="px-3 sm:px-4 py-2 text-base sm:text-lg border rounded-md hover:bg-gray-100 text-gray-700"
+        previousClassName="px-3 sm:px-4 py-2 text-base sm:text-lg border rounded-md hover:bg-gray-100 text-gray-700"
+        nextClassName="px-3 sm:px-4 py-2 text-base sm:text-lg border rounded-md hover:bg-gray-100 text-gray-700"
+        activeClassName="bg-blue-500 text-white"
+        disabledClassName="opacity-50 cursor-not-allowed"
+        forcePage={currentPageState - 1} 
+      />
+    </div>
   );
 }

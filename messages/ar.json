@@ -101,7 +101,7 @@
   },
   "pagination": {
     "next": "التالي",
-    "pervious": "السابق"
+    "previous": "السابق"
   },
   "stores": {
     "mainTitle": "جميع المتاجر والعروض",
