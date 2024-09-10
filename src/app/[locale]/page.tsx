@@ -3,7 +3,6 @@ import { Metadata } from "next";
 import FeaturedStoresSection from "@/components/home/featuredStores.tsx/FeaturedStores";
 import { getTranslations } from "next-intl/server";
 import { lazy, Suspense } from "react";
-
 const CouponInstruction = lazy(
   () => import("@/components/home/couponsInstruction/CouponInstruction")
 );

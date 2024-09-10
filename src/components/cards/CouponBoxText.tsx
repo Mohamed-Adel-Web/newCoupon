@@ -51,6 +51,7 @@ const CouponBoxText: React.FC<Props> = ({ code }) => {
               variant="ghost"
               className="absolute top-1/2 right-2 transform -translate-y-1/2"
               onClick={handleCopy}
+              aria-label={t("clickToCopy")}
             >
               <Clipboard className="text-gray-500" />
             </Button>
