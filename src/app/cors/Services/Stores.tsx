@@ -1,7 +1,7 @@
 import { environment } from "../environment/environment";
 import { IStore } from "../interfaces/istore";
 
-const fetchStoresData = async (url: string): Promise<IStore[]> => {
+const fetchStoresData = async (url: string): Promise<any> => {
   try {
     const response = await fetch(url, {
       method: "GET",
@@ -88,5 +88,17 @@ const GetAllStores = async (lang: string, page: number = 1) => {
     };
   }
 };
+const GetSingleStore = async (lang: string, id: string) => {
+  try {
+    const storeData = await fetchStoresData(
+      `${environment.baseUrl}/store-user/${lang}/${id}`
+    );
+    return storeData as IStore;
+  } catch (error) {
+    console.error("Error in retrieving store data:", error);
+    return {} as IStore;
+  }
+};
 
-export { useFeaturedStores, GetAllStores };
+
+export { useFeaturedStores, GetAllStores ,GetSingleStore};

@@ -85,5 +85,50 @@
   body {
     @apply bg-background text-foreground;
   }
+  .box-layout {
+    @apply bg-white shadow-lg rounded-md p-7;
+  }
+  table {
+    @apply w-full border-collapse my-6 text-left text-lg bg-gray-100 shadow-md; /* Tailwind classes */
+  }
 
+  table thead tr {
+    @apply bg-blue-600 text-white font-bold; /* Tailwind classes */
+  }
+
+  table th,
+  table td {
+    @apply border border-gray-300 px-4 py-3; /* Tailwind classes */
+  }
+
+  table tbody tr:nth-of-type(even) {
+    @apply bg-gray-200; /* Tailwind classes */
+  }
+
+  table tbody tr:nth-of-type(odd) {
+    @apply bg-white; /* Tailwind classes */
+  }
+
+  table tbody tr:hover {
+    @apply bg-blue-100; /* Tailwind classes */
+  }
+
+  table caption {
+    @apply my-3 text-2xl text-blue-600 font-bold; /* Tailwind classes */
+  }
+
+  @media (max-width: 767px) {
+    table {
+      @apply text-sm;
+    }
+
+    table th,
+    table td {
+      @apply px-2 py-2; /* Smaller padding for mobile */
+    }
+
+    table caption {
+      @apply text-base;
+    }
+  }
 }

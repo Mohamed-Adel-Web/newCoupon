@@ -112,5 +112,13 @@
       "keywords": "Coupons, Discount codes, Promo codes, Vouchers, Coupon code, discount code, Coupon, deals",
       "openGraph": "/images/logo/Logo_En.svg"
     }
-  }
+  },
+  "store":{
+    "storeSite":" shop now"
+    ,
+  "storeTitle":"All Stores"
+   },
+   "storeCoupon":{
+  "coupon":"coupon"
+ }
 }

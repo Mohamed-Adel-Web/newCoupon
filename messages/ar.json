@@ -113,5 +113,13 @@
       "keywords": "كوبون، كود خصم، كوبونات، اكواد خصم، كود توفير",
       "openGraph": "/images/logo/Logo_Ar.svg"
     }
-  }
+  },
+ "store":{
+  "storeSite":"تسوق الأن",
+  "storeTitle":"جميع المتاجر"
+
+ },
+ "storeCoupon":{
+  "coupon":"كود خصم"
+ }
 }
