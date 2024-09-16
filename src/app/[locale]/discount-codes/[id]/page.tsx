@@ -1,10 +1,16 @@
 import { IStore } from "@/app/cors/interfaces/istore";
 import { GetSingleStore } from "@/app/cors/Services/Stores";
+import UserRegisterSkeleton from "@/components/home/userRegister/UserRegisterSkeleton";
 import StoreCoupon from "@/components/SingleStore/StoreCoupon";
 import StoreSite from "@/components/SingleStore/StoreSite";
 import Title from "@/components/SingleStore/Title";
 import { Metadata } from "next";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getLocale } from "next-intl/server";
+const UserRegister = lazy(
+  () => import("@/components/home/userRegister/UserRegister") // Lazy load the registration section
+);
+
+import { lazy, Suspense } from "react";
 export const generateMetadata = async ({
   params,
 }: {
@@ -56,6 +62,11 @@ export default async function SingleStore({
               title={store.title}
               discount={store.discount}
             />
+          </div>
+          <div className="box-layout">
+            <Suspense fallback={<UserRegisterSkeleton />}>
+              <UserRegister />
+            </Suspense>
           </div>
           <div
             className="box-layout"

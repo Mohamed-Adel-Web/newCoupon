@@ -16,7 +16,7 @@ export default function CouponInstruction() {
             src="/images/CouponInstruction/instruction.svg"
             width={600}
             height={242}
-            className="rounded-md"
+            className="rounded-md w-full"
             alt="coupon instruction image"
           />
           <div className="p-6">

@@ -5,8 +5,7 @@
   },
   "searchBar": {
     "placeHolder": "Search Stores, coupons and discounts",
-    "searchButton":"search for store"
-
+    "searchButton": "search for store"
   },
   "navImage": {
     "logo": "/images/logo/Logo_En.svg"
@@ -126,5 +125,21 @@
     "copy_instructions": "Copy the code above and paste at checkout.",
     "copied": "Copied",
     "go": "go to"
+  },
+  "UserRegister": {
+    "subscribe": "Subscribe Now",
+    "emailError": "enter valid email",
+    "phoneNumberRequired": " phone number is required",
+    "title": "Get exclusive offers delivered to your inbox",
+    "email": "Email ",
+    "backendError": "email already in use"
+  },
+  "thankYou": {
+    "thankYouTitle": "Thank You for Registering!",
+    "thankYouMessage": "We're excited to have you on board! Get ready for some sizzling deals coming your way.",
+    "hotOffersTitle": "Hot Offers Await!",
+    "hotOffersMessage": "Keep an eye on your inbox for exclusive discounts and early access to our best deals.",
+    "returnHome": "Return Home",
+    "checkEmailMessage": "Check your email for a special welcome gift!"
   }
 }

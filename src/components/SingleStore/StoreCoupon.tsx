@@ -15,7 +15,7 @@ export default function StoreCoupon({
 
   return (
     <div className="box-layout col-span-12 grid grid-cols-12 gap-4">
-      <div className="md:col-span-3 flex md:flex-col justify-between text-center col-span-12 text-red-600 font-bold border-black border p-4  rounded-lg">
+      <div className="md:col-span-3 flex md:flex-col justify-between text-center col-span-12 text-red-600 font-bold border-black border p-4  rounded-lg shadow-gray-500 shadow-lg">
         <h6 className="text-red-600 ">{coupon.title}</h6>
         <h6>{t("coupon")}</h6>
       </div>

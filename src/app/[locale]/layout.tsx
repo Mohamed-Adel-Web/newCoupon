@@ -5,8 +5,8 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import NavbarLayout from "@/components/navbar/NavbarLayout";
 import FooterLayout from "@/components/footer/FooterLayout";
-import { GoogleAnalytics } from '@next/third-parties/google'
-import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Toaster } from "@/components/ui/toaster";
 const tajawal = Tajawal({
   subsets: ["arabic", "latin"],
@@ -51,6 +51,7 @@ export default async function RootLayout({
   };
   return (
     <html lang={locale} dir={locale == "en" ? "ltr" : "rtl"}>
+      <link rel="icon" href="/images/title/favicon.ico" sizes="any" />
       <GoogleTagManager gtmId="UA-137368123-1" />
       <body className={tajawal.className}>
         <NextIntlClientProvider messages={messages}>
