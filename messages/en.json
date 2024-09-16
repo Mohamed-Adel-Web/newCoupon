@@ -113,12 +113,16 @@
       "openGraph": "/images/logo/Logo_En.svg"
     }
   },
-  "store":{
-    "storeSite":" shop now"
-    ,
-  "storeTitle":"All Stores"
-   },
-   "storeCoupon":{
-  "coupon":"coupon"
- }
+  "store": {
+    "storeSite": " shop now",
+    "storeTitle": "All Stores"
+  },
+  "storeCoupon": {
+    "coupon": "coupon",
+    "available": "Available in",
+    "copy": "copy",
+    "copy_instructions": "Copy the code above and paste at checkout.",
+    "copied": "Copied",
+    "go": "go to"
+  }
 }

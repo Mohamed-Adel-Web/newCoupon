@@ -3,11 +3,8 @@ import { GetSingleStore } from "@/app/cors/Services/Stores";
 import StoreCoupon from "@/components/SingleStore/StoreCoupon";
 import StoreSite from "@/components/SingleStore/StoreSite";
 import Title from "@/components/SingleStore/Title";
-import { Button } from "@/components/ui/button";
 import { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
-import Image from "next/image";
-import Link from "next/link";
 export const generateMetadata = async ({
   params,
 }: {
@@ -39,9 +36,11 @@ export default async function SingleStore({
             <Title title={store.title} name={store.name} />
           </div>
 
-          <div className="box-layout grid grid-cols-12 gap-3 ">
+          <div className=" grid grid-cols-12 gap-3 ">
             {store.coupons.map((coupon) => {
-              return <StoreCoupon key={coupon.code} coupon={coupon}/>;
+              return (
+                <StoreCoupon key={coupon.code} coupon={coupon} store={store} />
+              );
             })}
           </div>
           <div

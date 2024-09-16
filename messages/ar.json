@@ -97,7 +97,6 @@
       "keywords": "كوبون، كود خصم، كوبونات، اكواد خصم، كود توفير",
       "openGraph": "/images/logo/Logo_Ar.svg"
     }
-   
   },
   "pagination": {
     "next": "التالي",
@@ -114,12 +113,16 @@
       "openGraph": "/images/logo/Logo_Ar.svg"
     }
   },
- "store":{
-  "storeSite":"تسوق الأن",
-  "storeTitle":"جميع المتاجر"
-
- },
- "storeCoupon":{
-  "coupon":"كود خصم"
- }
+  "store": {
+    "storeSite": "تسوق الأن",
+    "storeTitle": "جميع المتاجر"
+  },
+  "storeCoupon": {
+    "coupon": "كود خصم",
+    "available": " متاح في",
+    "copy": "نسخ",
+    "copy_instructions": "انسخ الكود أعلاه والصقه عند الدفع.",
+    "copied": "تم النسخ",
+    "go":"اذهب الي"
+  }
 }

@@ -99,6 +99,16 @@ const GetSingleStore = async (lang: string, id: string) => {
     return {} as IStore;
   }
 };
+const fetchSearchStoresData = async (searchParam: string, lang: string) => {
+  try {
+    const storesData = await fetchStoresData(
+      `${environment.baseUrl}/search-store/${lang}/${searchParam}`
+    );
+    return  storesData;
+  } catch (error) {
+    console.error("Error in retrieving stores data:", error);
+    return [];
+  }
+};
 
-
-export { useFeaturedStores, GetAllStores ,GetSingleStore};
+export { useFeaturedStores, GetAllStores, GetSingleStore, fetchSearchStoresData };
