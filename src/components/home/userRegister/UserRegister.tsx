@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/routing";
 import { Button } from "@/components/ui/button";
-import useUserData from "@/app/cors/Services/User";
 import EmailInput from "./EmailInput";
 import PhoneInputComponent from "./PhoneInput";
+import postUserData from "@/app/cors/Services/User";
 interface FormValues {
   email: string;
   phone_number: string;
@@ -56,7 +56,7 @@ export default function UserRegister() {
 
     if (Object.keys(errors).length === 0) {
       try {
-        const response = await useUserData(formValues);
+        const response = await postUserData(formValues);
         if (response.isSuccess) {
           router.push(`/thank-you`);
         } else {

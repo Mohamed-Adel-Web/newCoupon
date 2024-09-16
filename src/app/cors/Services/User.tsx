@@ -34,10 +34,10 @@ const fetchUserData = async (
   }
 };
 
-const useUserData = async (
+const postUserData = async (
   requestBody: IUser
 ): Promise<FetchUserDataResponse> => {
   return await fetchUserData(`${environment.baseUrl}/user`, requestBody);
 };
 
-export default useUserData;
+export default postUserData;

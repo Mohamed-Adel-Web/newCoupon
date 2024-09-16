@@ -9,7 +9,7 @@ import {
 import { Link } from "@/i18n/routing";
 import { Flame, Mail } from "lucide-react";
 import { useTranslations } from "next-intl";
-export default function thankYou() {
+export default function App() {
   const t = useTranslations("thankYou");
   return (
     <div className="min-h-screen flex items-center justify-center ">
