@@ -41,7 +41,7 @@ export default async function SingleStore({
 
           <div className="box-layout grid grid-cols-12 gap-3 ">
             {store.coupons.map((coupon) => {
-              return <StoreCoupon coupon={coupon}/>;
+              return <StoreCoupon key={coupon.code} coupon={coupon}/>;
             })}
           </div>
           <div
