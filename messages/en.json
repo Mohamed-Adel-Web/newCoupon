@@ -4,7 +4,9 @@
     "switchedLanguage": "ar"
   },
   "searchBar": {
-    "placeHolder": "Search Stores, coupons and discounts"
+    "placeHolder": "Search Stores, coupons and discounts",
+    "searchButton":"search for store"
+
   },
   "navImage": {
     "logo": "/images/logo/Logo_En.svg"

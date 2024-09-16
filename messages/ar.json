@@ -4,7 +4,8 @@
     "switchedLanguage": "en"
   },
   "searchBar": {
-    "placeHolder": "ابحث عن المتاجر، الكوبونات، والخصومات"
+    "placeHolder": "ابحث عن المتاجر، الكوبونات، والخصومات",
+    "searchButton":"ابحث عن المتجر"
   },
   "navImage": {
     "logo": "/images/logo/Logo_Ar.svg"
