@@ -22,6 +22,27 @@ const fetchStoresData = async (url: string): Promise<any> => {
   }
 };
 
+const fetchStoresIds = async (url: string): Promise<any> => {
+  try {
+    const response = await fetch(url, {
+      method: "GET",
+      next: {
+        revalidate: 21600,
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data?.data as number[];
+  } catch (error) {
+    console.error("Fetching stores data failed:", error);
+    throw error;
+  }
+};
+
 interface IStoreResponse {
   data: IStore[];
   current_page: number;
@@ -42,6 +63,7 @@ const fetchAllStoresData = async (
     });
 
     if (!response.ok) {
+      console.log(response)
       throw new Error(`HTTP error! Status: ${response.status}`);
     }
 
@@ -104,11 +126,25 @@ const fetchSearchStoresData = async (searchParam: string, lang: string) => {
     const storesData = await fetchStoresData(
       `${environment.baseUrl}/search-store/${lang}/${searchParam}`
     );
-    return  storesData;
+    return storesData;
   } catch (error) {
     console.error("Error in retrieving stores data:", error);
     return [];
   }
 };
-
-export { useFeaturedStores, GetAllStores, GetSingleStore, fetchSearchStoresData };
+const getStoresId = async () => {
+  try {
+    const storesIds = await fetchStoresData(`${environment.baseUrl}/storeIds`);
+    return storesIds;
+  } catch (error) {
+    console.error("Error in retrieving Categories data:", error);
+    return [];
+  }
+};
+export {
+  useFeaturedStores,
+  GetAllStores,
+  GetSingleStore,
+  fetchSearchStoresData,
+  getStoresId,
+};

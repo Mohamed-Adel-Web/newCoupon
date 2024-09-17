@@ -13,6 +13,7 @@ const UserRegister = lazy(
 import SwiperSection from "@/components/home/mainSlider/SwiperSection";
 import SwiperSkeleton from "@/components/home/mainSlider/SwiperSkeleton";
 import UserRegisterSkeleton from "@/components/home/userRegister/UserRegisterSkeleton";
+import { getStoresId } from "../cors/Services/Stores";
 
 export const generateMetadata = async ({
   params,
@@ -21,6 +22,9 @@ export const generateMetadata = async ({
 }): Promise<Metadata> => {
   const locale = params.locale;
   const t = await getTranslations({ locale, namespace: "home" });
+  const storesId = await getStoresId(); // Fetch store IDs dynamicallyc
+  console.log(storesId)
+
   const baseUrl = "https://shops-coupons.com";
   return {
     title: t("meta.title"),
