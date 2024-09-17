@@ -6,9 +6,8 @@ import { lazy, Suspense } from "react";
 const CouponInstruction = lazy(
   () => import("@/components/home/couponsInstruction/CouponInstruction")
 );
-const UserRegister = dynamic(
-  () => import("@/components/home/userRegister/UserRegister"),
-  { ssr: false, loading: () => <UserRegisterSkeleton /> }
+const UserRegister = lazy(
+  () => import("@/components/home/userRegister/UserRegister")
 );
 
 import SwiperSection from "@/components/home/mainSlider/SwiperSection";
@@ -46,7 +45,9 @@ export default async function HomePage() {
         <FeaturedCouponsSection />
       </section>
       <section className="box-layout">
-        <UserRegister />
+        <Suspense fallback={<UserRegisterSkeleton />}>
+          <UserRegister />
+        </Suspense>
       </section>
       <section className="my-12 text-start">
         <FeaturedStoresSection />
