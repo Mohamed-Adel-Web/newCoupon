@@ -6,14 +6,15 @@ import { lazy, Suspense } from "react";
 const CouponInstruction = lazy(
   () => import("@/components/home/couponsInstruction/CouponInstruction")
 );
-const UserRegister = lazy(
-  () => import("@/components/home/userRegister/UserRegister") // Lazy load the registration section
+const UserRegister = dynamic(
+  () => import("@/components/home/userRegister/UserRegister"),
+  { ssr: false, loading: () => <UserRegisterSkeleton /> }
 );
 
 import SwiperSection from "@/components/home/mainSlider/SwiperSection";
 import SwiperSkeleton from "@/components/home/mainSlider/SwiperSkeleton";
 import UserRegisterSkeleton from "@/components/home/userRegister/UserRegisterSkeleton";
-import { getStoresId } from "../cors/Services/Stores";
+import dynamic from "next/dynamic";
 
 export const generateMetadata = async ({
   params,
@@ -22,8 +23,6 @@ export const generateMetadata = async ({
 }): Promise<Metadata> => {
   const locale = params.locale;
   const t = await getTranslations({ locale, namespace: "home" });
-  const storesId = await getStoresId(); // Fetch store IDs dynamicallyc
-  console.log(storesId)
 
   const baseUrl = "https://shops-coupons.com";
   return {
@@ -47,9 +46,7 @@ export default async function HomePage() {
         <FeaturedCouponsSection />
       </section>
       <section className="box-layout">
-        <Suspense fallback={<UserRegisterSkeleton />}>
-          <UserRegister />
-        </Suspense>
+        <UserRegister />
       </section>
       <section className="my-12 text-start">
         <FeaturedStoresSection />
